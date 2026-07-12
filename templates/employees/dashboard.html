@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Employees Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Employees Dashboard</h1>
+
+<p><strong>Total Employees:</strong> {{ employee_count }}</p>
+<p><strong>Total Departments:</strong> {{ department_count }}</p>
+
+<p>
+    <a href="{% url 'add_employee' %}">+ Add Employee</a> |
+    <a href="{% url 'employees' %}">View Employees</a>
+</p>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Job Title</th>
+    </tr>
+
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.job_title }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No employees found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

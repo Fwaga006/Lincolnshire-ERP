@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Sale Items</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Sale</th>
+<th>Product</th>
+<th>Quantity</th>
+</tr>
+
+{% for item in items %}
+<tr>
+<td>{{ item.sale }}</td>
+<td>{{ item.product }}</td>
+<td>{{ item.quantity }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

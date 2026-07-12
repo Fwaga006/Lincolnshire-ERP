@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+<h2>Product Management</h2>
+
+<p>
+    <a href="{% url 'add_product' %}">+ Add Product</a> |
+    <a href="{% url 'add_stock' %}">📦 Stock In</a> |
+    <a href="{% url 'remove_stock' %}">📤 Stock Out</a> |
+    <a href="{% url 'stock_transactions' %}">📋 Transactions</a>
+</p>
+
+<table border="1" width="100%" cellpadding="8">
+
+<tr>
+    <th>Name</th>
+    <th>SKU</th>
+    <th>Category</th>
+    <th>Supplier</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Stock Value</th>
+    <th>Status</th>
+    <th>Actions</th>
+</tr>
+
+{% for product in products %}
+
+<tr>
+
+<td>{{ product.name }}</td>
+<td>{{ product.sku }}</td>
+<td>{{ product.category }}</td>
+<td>{{ product.supplier }}</td>
+<td>{{ product.quantity }}</td>
+<td>{{ product.unit_price }}</td>
+<td>{{ product.stock_value }}</td>
+
+<td>
+{% if product.low_stock %}
+<span style="color:red;"><strong>Low Stock</strong></span>
+{% else %}
+In Stock
+{% endif %}
+</td>
+
+<td>
+<a href="{% url 'edit_product' product.id %}">Edit</a> |
+<a href="{% url 'delete_product' product.id %}">Delete</a>
+</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="9">No products found.</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

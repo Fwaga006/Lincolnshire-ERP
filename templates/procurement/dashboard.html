@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Procurement Dashboard</h2>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ requisition_count }}</h3>
+                    <p>Purchase Requisitions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ quotation_count }}</h3>
+                    <p>Supplier Quotations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ grn_count }}</h3>
+                    <p>Goods Received Notes</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+        <div class="card-header">
+            Recent Purchase Requisitions
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Department</th>
+                        <th>Requested By</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                {% for req in recent_requisitions %}
+
+                    <tr>
+                        <td>{{ req.id }}</td>
+                        <td>{{ req.department }}</td>
+                        <td>{{ req.requested_by }}</td>
+                        <td>{{ req.status }}</td>
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No requisitions available.
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

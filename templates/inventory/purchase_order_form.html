@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Purchase Order{% endblock %}
+
+{% block content %}
+
+<h2>Purchase Order</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Save Purchase Order</button>
+
+    <a href="{% url 'purchase_orders' %}">
+        <button type="button">Cancel</button>
+    </a>
+</form>
+
+{% endblock %}

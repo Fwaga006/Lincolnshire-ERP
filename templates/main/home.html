@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Lincolnshire ERP Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Lincolnshire ERP Dashboard</h1>
+
+<hr>
+
+<h2>System Overview</h2>
+
+<ul>
+    <li><strong>Companies:</strong> {{ company_count }}</li>
+    <li><strong>Employees:</strong> {{ employee_count }}</li>
+    <li><strong>Finance Records:</strong> {{ finance_count }}</li>
+    <li><strong>Products:</strong> {{ product_count }}</li>
+    <li><strong>Suppliers:</strong> {{ supplier_count }}</li>
+    <li><strong>Customers:</strong> {{ customer_count }}</li>
+    <li><strong>Sales:</strong> {{ sale_count }}</li>
+    <li><strong>Purchase Requisitions:</strong> {{ requisition_count }}</li>
+</ul>
+
+<hr>
+
+<h2>Modules</h2>
+
+<ul>
+    <li><a href="/companies/">Companies</a></li>
+    <li><a href="/employees/">Employees</a></li>
+    <li><a href="/finance/">Finance</a></li>
+    <li><a href="/inventory/">Inventory</a></li>
+    <li><a href="/procurement/">Procurement</a></li>
+    <li><a href="/sales/">Sales</a></li>
+    <li><a href="/business-reports/">Business Reports</a></li>
+    <li><a href="/admin/">Django Admin</a></li>
+</ul>
+
+{% endblock %}s

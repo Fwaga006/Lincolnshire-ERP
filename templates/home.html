@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Lincolnshire ERP Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Lincolnshire ERP Dashboard</h1>
+<p>Welcome to the Lincolnshire Enterprise Resource Planning System.</p>
+
+<hr>
+
+<h2>System Summary</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Module</th>
+        <th>Total Records</th>
+    </tr>
+    <tr>
+        <td>Companies</td>
+        <td>{{ company_count }}</td>
+    </tr>
+    <tr>
+        <td>Employees</td>
+        <td>{{ employee_count }}</td>
+    </tr>
+    <tr>
+        <td>Finance Records</td>
+        <td>{{ finance_count }}</td>
+    </tr>
+    <tr>
+        <td>Products</td>
+        <td>{{ product_count }}</td>
+    </tr>
+    <tr>
+        <td>Suppliers</td>
+        <td>{{ supplier_count }}</td>
+    </tr>
+    <tr>
+        <td>Customers</td>
+        <td>{{ customer_count }}</td>
+    </tr>
+    <tr>
+        <td>Sales</td>
+        <td>{{ sale_count }}</td>
+    </tr>
+    <tr>
+        <td>Purchase Requisitions</td>
+        <td>{{ requisition_count }}</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>Quick Navigation</h2>
+
+<ul>
+    <li><a href="/companies/">🏢 Companies</a></li>
+    <li><a href="/employees/">👨‍💼 Employees</a></li>
+    <li><a href="/finance/">💰 Finance</a></li>
+    <li><a href="/inventory/">📦 Inventory</a></li>
+    <li><a href="/procurement/">🛒 Procurement</a></li>
+    <li><a href="/sales/">🛍️ Sales</a></li>
+    <li><a href="/business-reports/">📊 Business Reports</a></li>
+    <li><a href="/admin/">⚙️ Django Admin</a></li>
+</ul>
+
+{% endblock %}

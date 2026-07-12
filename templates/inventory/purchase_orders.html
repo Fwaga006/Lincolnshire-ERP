@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Purchase Orders{% endblock %}
+
+{% block content %}
+
+<h2>Purchase Orders</h2>
+
+<p>
+    <a href="{% url 'add_purchase_order' %}" class="btn">
+        + New Purchase Order
+    </a>
+</p>
+
+<table border="1" width="100%" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Supplier</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.supplier }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+            <a href="{% url 'edit_purchase_order' order.id %}">Edit</a> |
+            <a href="{% url 'delete_purchase_order' order.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No purchase orders found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Finance Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Finance Dashboard</h1>
+
+<p>Total Transactions: <strong>{{ transaction_count }}</strong></p>
+
+<p>
+    <a href="{% url 'transactions' %}">View Transactions</a> |
+    <a href="{% url 'add_transaction' %}">Add Transaction</a>
+</p>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Company</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+
+    {% for transaction in transactions %}
+    <tr>
+        <td>{{ transaction.company }}</td>
+        <td>{{ transaction.transaction_type }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.transaction_date }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No transactions available.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

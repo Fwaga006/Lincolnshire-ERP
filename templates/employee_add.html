@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Form{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Add / Edit Employee</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn">
+            Save Employee
+        </button>
+
+        <a href="{% url 'employees' %}" class="btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

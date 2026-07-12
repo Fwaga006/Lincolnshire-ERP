@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Business Reports{% endblock %}
+
+{% block content %}
+
+<h1>Business Reports Dashboard</h1>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+
+    <div style="background:#0d6efd;color:white;padding:20px;border-radius:10px;">
+        <h3>Companies</h3>
+        <h1>{{ companies }}</h1>
+    </div>
+
+    <div style="background:#198754;color:white;padding:20px;border-radius:10px;">
+        <h3>Employees</h3>
+        <h1>{{ employees }}</h1>
+    </div>
+
+    <div style="background:#fd7e14;color:white;padding:20px;border-radius:10px;">
+        <h3>Products</h3>
+        <h1>{{ products }}</h1>
+    </div>
+
+    <div style="background:#6f42c1;color:white;padding:20px;border-radius:10px;">
+        <h3>Suppliers</h3>
+        <h1>{{ suppliers }}</h1>
+    </div>
+
+    <div style="background:#20c997;color:white;padding:20px;border-radius:10px;">
+        <h3>Customers</h3>
+        <h1>{{ customers }}</h1>
+    </div>
+
+    <div style="background:#dc3545;color:white;padding:20px;border-radius:10px;">
+        <h3>Sales</h3>
+        <h1>{{ sales }}</h1>
+    </div>
+
+    <div style="background:#6c757d;color:white;padding:20px;border-radius:10px;">
+        <h3>Purchase Requisitions</h3>
+        <h1>{{ purchase_requisitions }}</h1>
+    </div>
+
+</div>
+
+<br>
+
+<h2>Financial Summary</h2>
+
+<table border="1" cellpadding="10" style="width:100%;border-collapse:collapse;">
+    <tr>
+        <th>Total Income</th>
+        <td>KSh {{ income }}</td>
+    </tr>
+
+    <tr>
+        <th>Total Expenses</th>
+        <td>KSh {{ expenses }}</td>
+    </tr>
+
+    <tr>
+        <th>Net Profit</th>
+        <td><strong>KSh {{ profit }}</strong></td>
+    </tr>
+</table>
+
+{% endblock %}

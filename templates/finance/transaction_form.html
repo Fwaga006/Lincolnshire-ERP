@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+
+<h1>Finance Transactions</h1>
+
+<p>
+    <a href="{% url 'add_transaction' %}">+ Add Transaction</a>
+</p>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Company</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for transaction in transactions %}
+    <tr>
+        <td>{{ transaction.company }}</td>
+        <td>{{ transaction.transaction_type }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.transaction_date }}</td>
+        <td>
+            <a href="{% url 'edit_transaction' transaction.id %}">Edit</a> |
+            <a href="{% url 'delete_transaction' transaction.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No transactions found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

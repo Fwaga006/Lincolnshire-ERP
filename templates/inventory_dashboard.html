@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Inventory Dashboard{% endblock %}
+
+{% block content %}
+
+<h2>Inventory Dashboard</h2>
+
+<table width="100%" cellpadding="15">
+<tr>
+
+<td align="center" bgcolor="#e3f2fd">
+<h3>Total Products</h3>
+<h1>{{ product_count }}</h1>
+</td>
+
+<td align="center" bgcolor="#e8f5e9">
+<h3>Total Categories</h3>
+<h1>{{ category_count }}</h1>
+</td>
+
+<td align="center" bgcolor="#fff3e0">
+<h3>Total Suppliers</h3>
+<h1>{{ supplier_count }}</h1>
+</td>
+
+<td align="center" bgcolor="#ffebee">
+<h3>Low Stock Items</h3>
+<h1>{{ low_stock }}</h1>
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<h3>Recent Products</h3>
+
+<table border="1" width="100%" cellpadding="10">
+
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Stock Value</th>
+</tr>
+
+{% for product in products %}
+
+<tr>
+
+<td>{{ product.name }}</td>
+
+<td>{{ product.category }}</td>
+
+<td>{{ product.quantity }}</td>
+
+<td>{{ product.unit_price }}</td>
+
+<td>{{ product.stock_value }}</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="5">
+No products available.
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Lincolnshire ERP Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Lincolnshire ERP Dashboard</h1>
+
+<p>Welcome to the Lincolnshire Enterprise Resource Planning System.</p>
+
+<hr>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+
+    <a href="/companies/" style="text-decoration:none;">
+        <div style="background:#0d6efd;color:white;padding:20px;border-radius:10px;">
+            <h2>Companies</h2>
+            <p>Manage company records</p>
+        </div>
+    </a>
+
+    <a href="/employees/" style="text-decoration:none;">
+        <div style="background:#198754;color:white;padding:20px;border-radius:10px;">
+            <h2>Employees</h2>
+            <p>Manage employees</p>
+        </div>
+    </a>
+
+    <a href="/finance/" style="text-decoration:none;">
+        <div style="background:#ffc107;color:black;padding:20px;border-radius:10px;">
+            <h2>Finance</h2>
+            <p>Income & Expenses</p>
+        </div>
+    </a>
+
+    <a href="/inventory/" style="text-decoration:none;">
+        <div style="background:#fd7e14;color:white;padding:20px;border-radius:10px;">
+            <h2>Inventory</h2>
+            <p>Products & Stock</p>
+        </div>
+    </a>
+
+    <a href="/procurement/" style="text-decoration:none;">
+        <div style="background:#6f42c1;color:white;padding:20px;border-radius:10px;">
+            <h2>Procurement</h2>
+            <p>Purchasing</p>
+        </div>
+    </a>
+
+    <a href="/sales/" style="text-decoration:none;">
+        <div style="background:#dc3545;color:white;padding:20px;border-radius:10px;">
+            <h2>Sales</h2>
+            <p>Customers & Sales</p>
+        </div>
+    </a>
+
+    <a href="/business-reports/" style="text-decoration:none;">
+        <div style="background:#20c997;color:white;padding:20px;border-radius:10px;">
+            <h2>Business Reports</h2>
+            <p>View Reports & Profit</p>
+        </div>
+    </a>
+
+</div>
+
+{% endblock %}

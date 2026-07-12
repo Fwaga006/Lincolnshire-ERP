@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Purchase Order{% endblock %}
+
+{% block content %}
+
+<h2>Delete Purchase Order</h2>
+
+<p>
+    Are you sure you want to delete Purchase Order
+    <strong>#{{ order.id }}</strong>?
+</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <button type="submit">Yes, Delete</button>
+
+    <a href="{% url 'purchase_orders' %}">
+        <button type="button">Cancel</button>
+    </a>
+</form>
+
+{% endblock %}

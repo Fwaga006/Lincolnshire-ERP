@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Sale Details</h2>
+
+<p><strong>ID:</strong> {{ sale.id }}</p>
+
+<p><strong>Customer:</strong> {{ sale.customer }}</p>
+
+<p><strong>Date:</strong> {{ sale.date }}</p>
+
+<a href="{% url 'sales' %}" class="btn btn-secondary">
+Back
+</a>
+
+{% endblock %}

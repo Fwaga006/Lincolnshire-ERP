@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Employees{% endblock %}
+
+{% block content %}
+
+<h2>Employee Management</h2>
+
+<form method="GET">
+    <input
+        type="text"
+        name="search"
+        placeholder="Search employee..."
+        value="{{ search }}">
+
+    <button type="submit">Search</button>
+
+    <a href="{% url 'employees' %}">
+        <button type="button">Clear</button>
+    </a>
+</form>
+
+<br>
+
+<p>
+    <a href="{% url 'add_employee' %}">
+        + Add Employee
+    </a>
+</p>
+
+<table border="1" width="100%" cellpadding="10">
+
+    <tr>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Job Title</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Salary</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for employee in page_obj %}
+
+    <tr>
+
+        <td>
+            <a href="{% url 'employee_detail' employee.id %}">
+                {{ employee.first_name }} {{ employee.last_name }}
+            </a>
+        </td>
+
+        <td>{{ employee.company }}</td>
+        <td>{{ employee.job_title }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.salary }}</td>
+
+        <td>
+            {% if employee.is_active %}
+                Active
+            {% else %}
+                Inactive
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="{% url 'edit_employee' employee.id %}">Edit</a> |
+            <a href="{% url 'delete_employee' employee.id %}"
+               onclick="return confirm('Delete this employee?');">
+                Delete
+            </a>
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="8">No employees found.</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<div>
+
+    {% if page_obj.has_previous %}
+        <a href="?page=1&search={{ search }}">First</a>
+        <a href="?page={{ page_obj.previous_page_number }}&search={{ search }}">Previous</a>
+    {% endif %}
+
+    <strong>
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </strong>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&search={{ search }}">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}&search={{ search }}">Last</a>
+    {% endif %}
+
+</div>
+
+{% endblock %}

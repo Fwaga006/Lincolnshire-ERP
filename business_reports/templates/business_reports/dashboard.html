@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Business Reports{% endblock %}
+
+{% block content %}
+
+<h1>Business Reports Dashboard</h1>
+
+<hr>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Report</th>
+        <th>Value</th>
+    </tr>
+
+    <tr>
+        <td>Total Companies</td>
+        <td>{{ companies }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Employees</td>
+        <td>{{ employees }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Products</td>
+        <td>{{ products }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Suppliers</td>
+        <td>{{ suppliers }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Customers</td>
+        <td>{{ customers }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Sales</td>
+        <td>{{ sales }}</td>
+    </tr>
+
+    <tr>
+        <td>Purchase Requisitions</td>
+        <td>{{ purchase_requisitions }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Income</td>
+        <td>KSh {{ income }}</td>
+    </tr>
+
+    <tr>
+        <td>Total Expenses</td>
+        <td>KSh {{ expenses }}</td>
+    </tr>
+
+    <tr>
+        <th>Net Profit</th>
+        <th>KSh {{ profit }}</th>
+    </tr>
+</table>
+
+{% endblock %}
